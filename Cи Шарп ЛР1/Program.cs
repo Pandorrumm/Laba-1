@@ -11,8 +11,7 @@ namespace Cи_Шарп_ЛР1_2
     {
         static void Main()
         {
-            Console.WriteLine("ЗАДАНИЕ:В двухмерном массиве целых чисел поменять места¬ ми столбцы,"+ 
-                "симметричные относительно середины масси¬ва(вертикальной линии).\n");
+          
             Console.WriteLine("Введите текст");
             string str = Console.ReadLine();
             char str1;
