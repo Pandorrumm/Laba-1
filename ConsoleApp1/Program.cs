@@ -11,49 +11,66 @@ namespace Cи_Шарп_ЛР1_1
     {
         static void Main(string[] args)
         {
-            int[,] Arr =  { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 },
-                           { 13, 14, 15, 16 }, { 17, 18, 19, 20 } };
-            PrintMassiv(Arr);
-            Console.WriteLine(Arr.Length);
-            Swap(Arr);
-            PrintMassiv(Arr);
+            int[,] arr =  { { 1, 2, 3,20 }, { 5, 6, 7,21}, { 9, 10, 11 ,22},
+                           { 13, 14, 15 ,23}, { 17, 18, 19,24 },{ 20, 21, 22,25 } };
+            PrintArray(arr);
+            Console.WriteLine(arr.Length);
+            Console.WriteLine("массив с заменой столбцов");
+            Swap(arr);
+            PrintArray(arr);
 
             Console.ReadKey();
         }
 
-        public static void PrintMassiv(int[,] A)
+        public static void PrintArray(int[,] Array)
         {
-           
-            var ran = new Random();
-            for (int i = 0; i < A.GetLength(0); i++)
+                
+            for (int i = 0; i < Array.GetLength(0); i++)
             {
-                for (int j = 0; j < A.GetLength(1); j++)
+                for (int j = 0; j < Array.GetLength(1); j++)
                 {                  
-                    Console.Write("{0}\t", A[i, j]);
+                    Console.Write("{0}\t", Array[i, j]);
                 }
                 Console.WriteLine();
             }
+           
             Console.ReadLine();
         }
 
-        public static void Swap(int[,] A)
+        public static void Swap(int[,] Array)
         {
-            for (int i = 0, j = A.GetLength(1)/2-1; i < A.GetLength(0) && j < A.GetLength(1) / 2; i++)
+            int y = Array.GetLength(1);
+            if (y % 2 != 0)
             {
+                for (int i = 0, j = Array.GetLength(1) / 2; i < Array.GetLength(0) && j < Array.GetLength(1)  ; i++)
+                {
+                    int temp = Array[i, j-1];
+                    Array[i, j-1] = Array[i, j + 1];
+                    Array[i, j + 1] = temp;
 
-                int temp = A[i, j];
-                A[i, j] = A[i, j+1];
-                A[i, j+1] = temp;
-                
+                }
+                for (int i = 0, j = 0; i < Array.GetLength(0) && j < Array.GetLength(1)&& Array.GetLength(1)>3; i++)
+                {
+                    int temp = Array[i, j];
+                    Array[i, j] = Array[i, Array.GetLength(1) - 1];
+                    Array[i, Array.GetLength(1) - 1] = temp;
+                }     
             }
-            for (int i = 0, j = 0 ; i < A.GetLength(0) && j < A.GetLength(1) ; i++)
+            else
             {
-                int temp = A[i, j];
-                A[i, j] = A[i, A.GetLength(1)-1];
-                A[i, A.GetLength(1) - 1] = temp;
-    
+                for (int i = 0, j = Array.GetLength(1) / 2 - 1; i < Array.GetLength(0) && j < Array.GetLength(1) / 2; i++)
+                {
+                    int temp = Array[i, j];
+                    Array[i, j] = Array[i, j + 1];
+                    Array[i, j + 1] = temp;
+                }
+                for (int i = 0, j = 0; i < Array.GetLength(0) && j < Array.GetLength(1); i++)
+                {
+                    int temp = Array[i, j];
+                    Array[i, j] = Array[i, Array.GetLength(1) - 1];
+                    Array[i, Array.GetLength(1) - 1] = temp;
+                }
             }
         }
-
     }
 }
