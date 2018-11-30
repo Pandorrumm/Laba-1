@@ -11,7 +11,7 @@ namespace Cи_Шарп_ЛР1_2
     {
         static void Main()
         {
-            
+         
             Console.WriteLine("Введите текст");
             string str = Console.ReadLine();
             char str1;
@@ -26,9 +26,11 @@ namespace Cи_Шарп_ЛР1_2
             }
             foreach (var item in dict)
             {
-                Console.WriteLine("Символ " + item.Key + "\t" + " встречается " + item.Value + " раз");
+                
+                Console.WriteLine("Символ " + item.Key + "\t" + " встречается " + item.Value + " раз"+ ((item.Value > 10 && item.Value < 20) || !"234".Contains(item.Value.ToString().Last()) ? "" : "а"));
             }
             Console.ReadLine();
         }
     }
 }
+
